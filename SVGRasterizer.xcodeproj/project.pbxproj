@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D996A72D1C45B89900F3B2F9 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D996A72C1C45B89900F3B2F9 /* main.cpp */; };
+		D9EA8E001C46FC84004585CC /* EnumBitMask.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D9EA8DFE1C46FC84004585CC /* EnumBitMask.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,9 @@
 /* Begin PBXFileReference section */
 		D996A7291C45B89900F3B2F9 /* SVGRasterizer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SVGRasterizer; sourceTree = BUILT_PRODUCTS_DIR; };
 		D996A72C1C45B89900F3B2F9 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		D9EA8DFE1C46FC84004585CC /* EnumBitMask.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EnumBitMask.cpp; sourceTree = "<group>"; };
+		D9EA8DFF1C46FC84004585CC /* EnumBitMask.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = EnumBitMask.hpp; sourceTree = "<group>"; };
+		D9EA8E021C46FCAB004585CC /* catch.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = catch.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +45,7 @@
 		D996A7201C45B89900F3B2F9 = {
 			isa = PBXGroup;
 			children = (
+				D9EA8DFD1C46FC84004585CC /* EnumBitMask */,
 				D996A72B1C45B89900F3B2F9 /* SVGRasterizer */,
 				D996A72A1C45B89900F3B2F9 /* Products */,
 			);
@@ -61,6 +66,26 @@
 			);
 			path = SVGRasterizer;
 			sourceTree = "<group>";
+		};
+		D9EA8DFD1C46FC84004585CC /* EnumBitMask */ = {
+			isa = PBXGroup;
+			children = (
+				D9EA8E011C46FCAB004585CC /* thirdparty */,
+				D9EA8DFE1C46FC84004585CC /* EnumBitMask.cpp */,
+				D9EA8DFF1C46FC84004585CC /* EnumBitMask.hpp */,
+			);
+			name = EnumBitMask;
+			path = EnumBitMask/EnumBitMask;
+			sourceTree = "<group>";
+		};
+		D9EA8E011C46FCAB004585CC /* thirdparty */ = {
+			isa = PBXGroup;
+			children = (
+				D9EA8E021C46FCAB004585CC /* catch.hpp */,
+			);
+			name = thirdparty;
+			path = EnumBitMask/thirdparty;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -118,6 +143,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9EA8E001C46FC84004585CC /* EnumBitMask.cpp in Sources */,
 				D996A72D1C45B89900F3B2F9 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -207,6 +233,10 @@
 		D996A7311C45B89900F3B2F9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					./EnumBitmask/EnumBitMask,
+					./EnumBitmask/unittests,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -214,6 +244,10 @@
 		D996A7321C45B89900F3B2F9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					./EnumBitmask/EnumBitMask,
+					./EnumBitmask/unittests,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -237,6 +271,7 @@
 				D996A7321C45B89900F3B2F9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

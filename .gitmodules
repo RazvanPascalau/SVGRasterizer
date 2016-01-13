@@ -1,0 +1,3 @@
+[submodule "EnumBitMask"]
+	path = EnumBitMask
+	url = https://github.com/RazvanPascalau/EnumBitMask.git

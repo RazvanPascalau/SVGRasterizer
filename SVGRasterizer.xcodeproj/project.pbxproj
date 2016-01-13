@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		D996A72D1C45B89900F3B2F9 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D996A72C1C45B89900F3B2F9 /* main.cpp */; };
 		D9EA8E001C46FC84004585CC /* EnumBitMask.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D9EA8DFE1C46FC84004585CC /* EnumBitMask.cpp */; };
+		D9EA8EC81C4704B5004585CC /* pugixml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D9EA8E571C4704B5004585CC /* pugixml.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,6 +30,9 @@
 		D9EA8DFE1C46FC84004585CC /* EnumBitMask.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EnumBitMask.cpp; sourceTree = "<group>"; };
 		D9EA8DFF1C46FC84004585CC /* EnumBitMask.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = EnumBitMask.hpp; sourceTree = "<group>"; };
 		D9EA8E021C46FCAB004585CC /* catch.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = catch.hpp; sourceTree = "<group>"; };
+		D9EA8E561C4704B5004585CC /* pugiconfig.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = pugiconfig.hpp; sourceTree = "<group>"; };
+		D9EA8E571C4704B5004585CC /* pugixml.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pugixml.cpp; sourceTree = "<group>"; };
+		D9EA8E581C4704B5004585CC /* pugixml.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = pugixml.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +51,7 @@
 			children = (
 				D9EA8DFD1C46FC84004585CC /* EnumBitMask */,
 				D996A72B1C45B89900F3B2F9 /* SVGRasterizer */,
+				D9EA8E031C4702FC004585CC /* thirdparty */,
 				D996A72A1C45B89900F3B2F9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -86,6 +91,32 @@
 			name = thirdparty;
 			path = EnumBitMask/thirdparty;
 			sourceTree = SOURCE_ROOT;
+		};
+		D9EA8E031C4702FC004585CC /* thirdparty */ = {
+			isa = PBXGroup;
+			children = (
+				D9EA8E081C4704B5004585CC /* pugixml */,
+			);
+			path = thirdparty;
+			sourceTree = "<group>";
+		};
+		D9EA8E081C4704B5004585CC /* pugixml */ = {
+			isa = PBXGroup;
+			children = (
+				D9EA8E551C4704B5004585CC /* src */,
+			);
+			path = pugixml;
+			sourceTree = "<group>";
+		};
+		D9EA8E551C4704B5004585CC /* src */ = {
+			isa = PBXGroup;
+			children = (
+				D9EA8E561C4704B5004585CC /* pugiconfig.hpp */,
+				D9EA8E571C4704B5004585CC /* pugixml.cpp */,
+				D9EA8E581C4704B5004585CC /* pugixml.hpp */,
+			);
+			path = src;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -145,6 +176,7 @@
 			files = (
 				D9EA8E001C46FC84004585CC /* EnumBitMask.cpp in Sources */,
 				D996A72D1C45B89900F3B2F9 /* main.cpp in Sources */,
+				D9EA8EC81C4704B5004585CC /* pugixml.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +268,7 @@
 				HEADER_SEARCH_PATHS = (
 					./EnumBitmask/EnumBitMask,
 					./EnumBitmask/unittests,
+					./thirdparty/pugixml/src/,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -247,6 +280,7 @@
 				HEADER_SEARCH_PATHS = (
 					./EnumBitmask/EnumBitMask,
 					./EnumBitmask/unittests,
+					./thirdparty/pugixml/src/,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

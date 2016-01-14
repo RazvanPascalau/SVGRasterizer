@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D985F6EE1C4853CB004B07D3 /* SVGParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D985F6EC1C4853CB004B07D3 /* SVGParser.cpp */; };
 		D996A72D1C45B89900F3B2F9 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D996A72C1C45B89900F3B2F9 /* main.cpp */; };
 		D9EA8E001C46FC84004585CC /* EnumBitMask.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D9EA8DFE1C46FC84004585CC /* EnumBitMask.cpp */; };
 		D9EA8EC81C4704B5004585CC /* pugixml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D9EA8E571C4704B5004585CC /* pugixml.cpp */; };
@@ -25,6 +26,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D985F6EC1C4853CB004B07D3 /* SVGParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SVGParser.cpp; sourceTree = "<group>"; };
+		D985F6ED1C4853CB004B07D3 /* SVGParser.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SVGParser.hpp; sourceTree = "<group>"; };
 		D996A7291C45B89900F3B2F9 /* SVGRasterizer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SVGRasterizer; sourceTree = BUILT_PRODUCTS_DIR; };
 		D996A72C1C45B89900F3B2F9 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		D9EA8DFE1C46FC84004585CC /* EnumBitMask.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EnumBitMask.cpp; sourceTree = "<group>"; };
@@ -68,6 +71,8 @@
 			isa = PBXGroup;
 			children = (
 				D996A72C1C45B89900F3B2F9 /* main.cpp */,
+				D985F6EC1C4853CB004B07D3 /* SVGParser.cpp */,
+				D985F6ED1C4853CB004B07D3 /* SVGParser.hpp */,
 			);
 			path = SVGRasterizer;
 			sourceTree = "<group>";
@@ -177,6 +182,7 @@
 				D9EA8E001C46FC84004585CC /* EnumBitMask.cpp in Sources */,
 				D996A72D1C45B89900F3B2F9 /* main.cpp in Sources */,
 				D9EA8EC81C4704B5004585CC /* pugixml.cpp in Sources */,
+				D985F6EE1C4853CB004B07D3 /* SVGParser.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,3 +10,8 @@ SVGRasterizer.xcodeproj/xcuserdata/razvanpascalau.xcuserdatad/xcschemes/xcscheme
 *.xcscmblueprint
 
 SVGRasterizer.xcodeproj/xcuserdata/razvanpascalau.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist
+
+CMakeFiles
+CMakeCache.txt
+CMakeScripts
+cmake_install.cmake

@@ -7,7 +7,7 @@
 //
 
 #include "SVGParser.hpp"
-#include "pugixml.hpp"
+#include "pugixml/pugixml.hpp"
 #include <iostream>
 
 bool parseSVG(const std::string& filePath)

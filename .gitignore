@@ -9,3 +9,5 @@ CMakeScripts
 cmake_install.cmake
 ./bin
 ./build
+build
+bin

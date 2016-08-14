@@ -1,3 +1,6 @@
 [submodule "thirdparty/EnumBitMask"]
 	path = thirdparty/EnumBitMask
 	url = https://github.com/RazvanPascalau/EnumBitMask.git
+[submodule "thirdparty/GSL"]
+	path = thirdparty/GSL
+	url = https://github.com/Microsoft/GSL

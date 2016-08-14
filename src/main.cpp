@@ -9,7 +9,7 @@
 #include "SVGParser.hpp"
 #include "Catch/catch.hpp"
 
-TEST_CASE("basic enum bitmask usage", "[EnumBitMask]")
+TEST_CASE("MainTestCase", "[Main]")
 {
     const auto path = std::string{ "/Users/razvanpascalau/dev/test.svg" };
     parseSVG(path);

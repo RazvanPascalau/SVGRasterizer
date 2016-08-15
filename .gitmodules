@@ -4,3 +4,6 @@
 [submodule "thirdparty/GSL"]
 	path = thirdparty/GSL
 	url = https://github.com/Microsoft/GSL
+[submodule "thirdparty/rapidjson"]
+	path = thirdparty/rapidjson
+	url = https://github.com/miloyip/rapidjson.git

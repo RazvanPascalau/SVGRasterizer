@@ -24,6 +24,7 @@ set(GSL_SRC "${THIRD_PARTY_PATH}/GSL/gsl/gsl"
 			"${THIRD_PARTY_PATH}/GSL/gsl/multi_span"
 			"${THIRD_PARTY_PATH}/GSL/gsl/span"
 			"${THIRD_PARTY_PATH}/GSL/gsl/string_span")
+#set(RAPID_JSON_SRC "${THIRD_PARTY_PATH}/rapidjson/include)"
 
 set(THIRD_PARTY_SRC ${ENUM_BITMASK_SRC}
 					${CATCH_SRC}
@@ -41,11 +42,13 @@ set(SVG_RASTERIZER_SRC	"${SVG_RASTERIZER_PATH}/main.cpp"
 						"${SVG_RASTERIZER_PATH}/SVGParser.hpp"
 						"${SVG_RASTERIZER_PATH}/SVGParser.cpp"
 						"${SVG_RASTERIZER_PATH}/SVGElement.hpp"
-						"${SVG_RASTERIZER_PATH}/SVGAttribute.hpp")
+						"${SVG_RASTERIZER_PATH}/SVGAttribute.hpp" src/ConfigLoader.cpp src/ConfigLoader.h)
 include_directories(${THIRD_PARTY_PATH}
 					${SVG_RASTERIZER_PATH}
 					${CMAKE_SOURCE_DIR}
-					"${THIRD_PARTY_PATH}/GSL")
+					${THIRD_PARTY_PATH}/GSL
+					${THIRD_PARTY_PATH}/rapidjson/include)
+add_subdirectory(${THIRD_PARTY_PATH}/rapidjson)
 
 add_executable(SVGRasterizer 	${SVG_RASTERIZER_SRC}
 								${THIRD_PARTY_SRC})

@@ -42,7 +42,7 @@ set(SVG_RASTERIZER_SRC	"${SVG_RASTERIZER_PATH}/main.cpp"
 						"${SVG_RASTERIZER_PATH}/SVGParser.hpp"
 						"${SVG_RASTERIZER_PATH}/SVGParser.cpp"
 						"${SVG_RASTERIZER_PATH}/SVGElement.hpp"
-						"${SVG_RASTERIZER_PATH}/SVGAttribute.hpp" src/ConfigLoader.cpp src/ConfigLoader.h)
+						"${SVG_RASTERIZER_PATH}/SVGAttribute.hpp" src/ConfigLoader.cpp src/ConfigLoader.h src/Configuration.cpp src/Configuration.h)
 include_directories(${THIRD_PARTY_PATH}
 					${SVG_RASTERIZER_PATH}
 					${CMAKE_SOURCE_DIR}

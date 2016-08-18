@@ -6,7 +6,7 @@
 //  Copyright © 2016 Razvan Pascalau. All rights reserved.
 //
 
-#include "SVGParser.hpp"
+#include "SvgParser.h"
 #include <iostream>
 #include "pugixml/pugixml.hpp"
 #include <gsl/gsl>

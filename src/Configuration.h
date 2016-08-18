@@ -3,7 +3,12 @@
 //
 #pragma once
 
+#include <vector>
+#include "SvgElement.h"
+
 class Configuration
 {
 
+private:
+	std::vector<SvgElement> elements;
 };

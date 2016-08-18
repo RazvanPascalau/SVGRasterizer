@@ -6,7 +6,7 @@
 //  Copyright © 2016 Razvan Pascalau. All rights reserved.
 //
 #define CATCH_CONFIG_MAIN // This tells Catch to provide a main() - only do this in one cpp file
-#include "SVGParser.hpp"
+#include "SvgParser.h"
 #include "Catch/catch.hpp"
 
 TEST_CASE("MainTestCase", "[Main]")

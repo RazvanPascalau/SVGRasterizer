@@ -39,10 +39,14 @@ source_group("thirdparty\\GSL" FILES ${GSL_SRC})
 
 set(SVG_RASTERIZER_PATH "${CMAKE_SOURCE_DIR}/src")
 set(SVG_RASTERIZER_SRC	"${SVG_RASTERIZER_PATH}/main.cpp"
-						"${SVG_RASTERIZER_PATH}/SVGParser.hpp"
-						"${SVG_RASTERIZER_PATH}/SVGParser.cpp"
-						"${SVG_RASTERIZER_PATH}/SVGElement.hpp"
-						"${SVG_RASTERIZER_PATH}/SVGAttribute.hpp" src/ConfigLoader.cpp src/ConfigLoader.h src/Configuration.cpp src/Configuration.h)
+						"${SVG_RASTERIZER_PATH}/SvgParser.h"
+						"${SVG_RASTERIZER_PATH}/SvgParser.cpp"
+						"${SVG_RASTERIZER_PATH}/SvgElement.h"
+						"${SVG_RASTERIZER_PATH}/SVGAttribute.hpp"
+						"${SVG_RASTERIZER_PATH}/ConfigLoader.cpp"
+						"${SVG_RASTERIZER_PATH}/ConfigLoader.h"
+						"${SVG_RASTERIZER_PATH}/Configuration.cpp"
+						"${SVG_RASTERIZER_PATH}/Configuration.h")
 include_directories(${THIRD_PARTY_PATH}
 					${SVG_RASTERIZER_PATH}
 					${CMAKE_SOURCE_DIR}

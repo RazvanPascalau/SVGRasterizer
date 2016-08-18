@@ -1,19 +1,18 @@
-{  
-  "elements":[
-    {
-      "id":1,
-      "name":"svg",
-      "child":[2, 3]
-    },
-    {
-      "id":2,
-      "name":"g",
-      "child":[3]
-    },
-    {
-      "id":3,
-      "name":"circle",
-      "child":[]
-    }
+{ 
+	"element_groups":[
+	{
+		"name":"containters",
+		"elements":[ "a", "defs", "glyph", "g", "marker", "mask", "missing-glyph", "pattern", "svg", "switch","symbol"]
+	},
+  	{ 
+  		"name":"basic shapes",
+  		"elements":["circle", "ellipse", "line", "polygon", "polyline", "rect"]
+  	}
+  ],
+  "attributes":[],
+  "element_children":[
+  	{"elem":"svg", "children":["svg","g","circle"]},
+  	{"elem":"g", "children":["g","circle"]},
+  	{"elem":"circle", "children":["circle"]}
   ]
 }

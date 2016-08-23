@@ -12,6 +12,7 @@ namespace ConfigLoader
 	using rapidjson::Document;
 	using rapidjson::Value;
 	using rapidjson::SizeType;
+	using rapidjson::FileReadStream;
 
 	std::vector<SvgElement> getAllElements(rapidjson::Value::MemberIterator elementsIt)
 	{

@@ -8,7 +8,7 @@
 #pragma once
 #include <string>
 
-bool parseSVG(const std::string& filePath);
+bool parseSVG(const std::string &svgFilePath, const std::string& configFilePath);
 
 //class SVGParser {
 //

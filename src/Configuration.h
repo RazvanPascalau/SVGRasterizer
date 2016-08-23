@@ -6,9 +6,7 @@
 #include <vector>
 #include "SvgElement.h"
 
-class Configuration
+struct Configuration
 {
-
-private:
 	std::vector<SvgElement> elements;
 };

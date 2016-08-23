@@ -2,10 +2,11 @@
 // Created by Razvan Pascalau on 16/08/16.
 //
 #pragma once
+#include <Configuration.h>
 
-#include <rapidjson/rapidjson.h>
-
-class ConfigLoader
+namespace ConfigLoader
 {
+	Configuration loadConfigAtPath(const std::string& configPath);
+
 
 };

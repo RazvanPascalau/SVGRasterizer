@@ -9,12 +9,15 @@
 #include "SvgParser.h"
 #include <iostream>
 #include "pugixml/pugixml.hpp"
-#include <gsl/gsl>
+#include "gsl/gsl"
+#include "ConfigLoader.h"
+
+bool parseSVG(const std::string &svgFilePath, const std::string& configFilePath) {
+	const auto configuration = ConfigLoader::loadConfigAtPath(configFilePath);
 
 
-bool parseSVG(const std::string &filePath) {
 	pugi::xml_document doc;
-	pugi::xml_parse_result result = doc.load_file(filePath.c_str());
+	pugi::xml_parse_result result = doc.load_file(svgFilePath.c_str());
 
 	if (result.status != pugi::status_ok)
 		return false;

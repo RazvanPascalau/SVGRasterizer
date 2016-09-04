@@ -1,6 +1,5 @@
 { 
-	"elements":["a", "defs", "glyph", "g", "marker", "mask", "missing-glyph", "pattern", "svg", 
-		"switch", "symbol","circle", "ellipse", "line", "polygon", "polyline", "rect"],
+	"elements":["a", "circle", "defs", "ellipse", "g", "glyph", "line", "marker", "mask", "missing-glyph", "pattern", "polygon", "polyline", "rect", "svg", "switch", "symbol"],
 	"element_groups":[
 	{
 		"name":"containters",
@@ -13,8 +12,8 @@
   ],
   "attributes":[],
   "element_children":[
-  	{"elem":"svg", "children":["basic shapes","containters"]},
-  	{"elem":"g", "children":["g","circle"]},
-  	{"elem":"circle", "children":["circle"]}
+  	{"parent":"svg", "children":["basic shapes","containters"]},
+  	{"parent":"g", "children":["g","circle"]},
+  	{"parent":"circle", "children":["circle"]}
   ]
 }

@@ -13,9 +13,8 @@
 #include "ConfigLoader.h"
 
 bool parseSVG(const std::string &svgFilePath, const std::string& configFilePath) {
+
 	const auto configuration = ConfigLoader::loadConfigAtPath(configFilePath);
-
-
 	pugi::xml_document doc;
 	pugi::xml_parse_result result = doc.load_file(svgFilePath.c_str());
 

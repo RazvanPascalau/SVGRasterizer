@@ -3,3 +3,10 @@
 //
 
 #include "Configuration.h"
+
+Configuration::Configuration(std::vector<SvgElement>&& elements_, std::unordered_map<std::string, std::vector<ElementIndexType>> groups_)
+	:elements(elements_)
+	,groups(groups_)
+{
+	std::sort(std::begin(elements), std::end(elements));
+}

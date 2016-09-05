@@ -13,7 +13,6 @@ namespace ConfigLoader
 	using rapidjson::Value;
 	using rapidjson::SizeType;
 	using rapidjson::FileReadStream;
-	using ChildrenMapType = std::unordered_map<ElementIndexType, std::vector<ElementIndexType>>;
 
 	////// TODO: move this from here /////////////////////////////////////////////////////////
 	std::ostream& operator<<(std::ostream& stream, const SvgElement& element_to_print)
@@ -100,6 +99,7 @@ namespace ConfigLoader
 				assert(raw_single_group_element.IsString());
 				const auto group_element_as_string = std::string{raw_single_group_element.GetString(),
 				                                                 raw_single_group_element.GetStringLength()};
+
 				index_for_name = getIndexOfElementName(group_element_as_string, all_elements_);
 				all_element_groups[group_name].emplace_back(index_for_name);
 			}
@@ -115,7 +115,8 @@ namespace ConfigLoader
 		return all_element_groups;
 	}
 
-	ChildrenMapType getAllElementChildren(const Document& doc, const std::vector<SvgElement>& all_elements_)
+	ChildrenMapType getAllElementChildren(const Document& doc, const std::vector<SvgElement>& all_elements_,
+	                                      const std::unordered_map<std::string, std::vector<ElementIndexType>>& element_groups)
 	{
 		ChildrenMapType all_element_children;
 		all_element_children.reserve(all_elements_.size()); //TODO: check if this is helping with anything
@@ -147,7 +148,19 @@ namespace ConfigLoader
 			{
 				assert(raw_child.IsString());
 				const auto child = std::string{raw_child.GetString(), raw_child.GetStringLength()};
-				all_children.emplace_back(getIndexOfElementName(child, all_elements_));
+
+				if (element_groups.count(child) > 0) // the name is a group name
+				{
+					const auto& group_with_current_name = element_groups.at(child);
+					all_children.insert(std::end(all_children), std::begin(group_with_current_name),
+					                    std::end(group_with_current_name));//we replace the group with it's elements
+				}
+				else // otherwise it's a simple element
+				{
+					all_children.emplace_back(getIndexOfElementName(child, all_elements_));
+				}
+				std::sort(std::begin(all_children), std::end(all_children));
+				all_element_children[parent_element_index] = all_children;
 			}
 		}
 		return all_element_children;
@@ -173,9 +186,9 @@ namespace ConfigLoader
 
 		auto all_elements = getAllElements(doc);
 		auto all_element_groups = getAllElementGroups(doc, all_elements);
-		auto all_element_children = getAllElementChildren(doc, all_elements);
+		auto all_element_children = getAllElementChildren(doc, all_elements, all_element_groups);
 
-		return Configuration(std::move(all_elements), std::move(all_element_groups));
+		return Configuration(std::move(all_elements), std::move(all_element_groups), std::move(all_element_children));
 	}
 
 };

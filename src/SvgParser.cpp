@@ -12,6 +12,13 @@
 #include "gsl/gsl"
 #include "ConfigLoader.h"
 
+template <typename  ElementType, typename ConfigurationType>
+bool parseElement(const ElementType& element, const ConfigurationType& configuration)
+{
+
+	return false;
+}
+
 bool parseSVG(const std::string &svgFilePath, const std::string& configFilePath) {
 
 	const auto configuration = ConfigLoader::loadConfigAtPath(configFilePath);
@@ -21,6 +28,12 @@ bool parseSVG(const std::string &svgFilePath, const std::string& configFilePath)
 	if (result.status != pugi::status_ok)
 		return false;
 	std::cout << "First node name: [" << doc.first_child().name() << "]\n";
+
+	//start with elements
+	std::for_each(std::begin(doc), std::end(doc), [&configuration](const auto& element)
+	{
+		parseElement(element, configuration);
+	});
 
 	//    std::cout << "Load result: " << result.description() << ", mesh name: " << doc.child("mesh").attribute("name").value() << std::endl;
 	return false;

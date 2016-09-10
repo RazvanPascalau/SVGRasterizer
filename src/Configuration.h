@@ -4,18 +4,21 @@
 #pragma once
 
 #include <vector>
-#include <unordered_map>
+#include <string>
+#include <sparsehash/dense_hash_map>
 #include "SvgElement.h"
-
-using ElementIndexType = uint32_t;
-using ChildrenMapType = std::unordered_map<ElementIndexType, std::vector<ElementIndexType>>;
 
 struct Configuration
 {
-	Configuration(std::vector<SvgElement> && elements_, std::unordered_map<std::string, std::vector<ElementIndexType>>&& groups_,
+	using ElementContainerType = std::vector<SvgElement>;
+	using ChildrenMapType = google::dense_hash_map<std::string, std::vector<std::string>>;
+	using ElementGroupType =  google::dense_hash_map<std::string, std::vector<std::string>>;
+
+	Configuration(ElementContainerType&& elements_, ElementGroupType&& groups_,
 	              ChildrenMapType&& children_);
 
-	std::vector<SvgElement> elements;
-	std::unordered_map<std::string, std::vector<ElementIndexType>> groups;
-	ChildrenMapType children;
+
+	const ElementContainerType elements;
+	const ElementGroupType groups;
+	const ChildrenMapType children;
 };

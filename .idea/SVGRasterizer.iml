@@ -73,11 +73,7 @@
       <sourceFolder url="file://$MODULE_DIR$/thirdparty/rapidjson/thirdparty/gtest/googletest/src/gtest-all.cc" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/thirdparty/rapidjson/thirdparty/gtest/googletest/CMakeLists.txt" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/thirdparty/rapidjson/thirdparty/gtest/googletest/cmake/internal_utils.cmake" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/thirdparty/EnumBitMask/EnumBitMask/EnumBitMask.hpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/thirdparty/EnumBitMask/EnumBitMask/EnumBitMask.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/thirdparty/pugixml/pugixml.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/thirdparty/pugixml/pugiconfig.hpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/thirdparty/pugixml/pugixml.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/thirdparty/Catch/catch.hpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/thirdparty/GSL/gsl/multi_span" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/thirdparty/GSL/gsl/gsl_util" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/thirdparty/GSL/gsl/gsl" isTestSource="false" />
@@ -85,7 +81,11 @@
       <sourceFolder url="file://$MODULE_DIR$/thirdparty/GSL/gsl/gsl_assert" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/thirdparty/GSL/gsl/string_span" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/thirdparty/GSL/gsl/span" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/thirdparty/Catch/catch.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/thirdparty/pugixml/pugixml.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/thirdparty/pugixml/pugiconfig.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/thirdparty/pugixml/pugixml.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/thirdparty/EnumBitMask/EnumBitMask/EnumBitMask.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/thirdparty/EnumBitMask/EnumBitMask/EnumBitMask.cpp" isTestSource="false" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">

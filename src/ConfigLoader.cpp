@@ -33,7 +33,7 @@ namespace ConfigLoader
 	}
 	//////////////////////////////////////////////////////////////////////////////////////////
 
-	Configuration::ElementContainerType getAllElements(const Document& doc)
+	Config::ElementContainerType getAllElements(const Document& doc)
 	{
 		// load elements
 		const auto elements_it = doc.FindMember("elements");
@@ -52,22 +52,7 @@ namespace ConfigLoader
 		return all_elements;
 	}
 
-	uint32_t getIndexOfElementName(const std::string& name, const std::vector<SvgElement>& all_elements_)
-	{
-		uint32_t index_for_name{std::numeric_limits<uint32_t>::max()};
-		assert(std::is_sorted(std::begin(all_elements_), std::end(all_elements_)));
-		auto searched_name_it = std::lower_bound(std::begin(all_elements_), std::end(all_elements_),
-		                                         name);
-
-		if (searched_name_it == all_elements_.end() || searched_name_it->name != name)
-		{
-			//TODO: Throw exception
-		}
-		index_for_name = std::distance(all_elements_.begin(), searched_name_it);
-		return index_for_name;
-	}
-
-	Configuration::ElementGroupType
+	Config::ElementGroupType
 	getAllElementGroups(const Document& doc, const std::vector<SvgElement>& all_elements_)
 	{
 		const auto element_groups_it = doc.FindMember("element_groups");
@@ -75,7 +60,7 @@ namespace ConfigLoader
 		assert(element_groups_it->value.IsArray());
 		const auto raw_array_of_groups = element_groups_it->value.GetArray();
 
-		Configuration::ElementGroupType all_element_groups;
+		Config::ElementGroupType all_element_groups;
 		all_element_groups.set_empty_key(std::string{""});
 		for (const auto& raw_single_group: raw_array_of_groups)
 		{
@@ -114,11 +99,11 @@ namespace ConfigLoader
 		return all_element_groups;
 	}
 
-	Configuration::ChildrenMapType
+	Config::ChildrenMapType
 	getAllElementChildren(const rapidjson::Document& doc, const std::vector<SvgElement>& all_elements_,
-	                      const Configuration::ElementGroupType& element_groups_)
+	                      const Config::ElementGroupType& element_groups_)
 	{
-		Configuration::ChildrenMapType all_element_children;
+		Config::ChildrenMapType all_element_children;
 		all_element_children.set_empty_key(std::string{""});
 
 		// load elements
@@ -149,7 +134,7 @@ namespace ConfigLoader
 				auto child = std::string{raw_child.GetString(), raw_child.GetStringLength()};
 				if (element_groups_.count(child) > 0) // the name is a group name
 				{
-					const auto& group_with_current_name = const_cast<Configuration::ElementGroupType&>(element_groups_)[child];
+					const auto& group_with_current_name = const_cast<Config::ElementGroupType&>(element_groups_)[child];
 					all_children.insert(std::end(all_children), std::begin(group_with_current_name),
 					                    std::end(group_with_current_name));//we replace the group with it's elements
 				} else // otherwise it's a simple element
@@ -175,7 +160,7 @@ namespace ConfigLoader
 		return doc;
 	}
 
-	Configuration loadConfigAtPath(const std::string& config_path)
+	Config loadConfigAtPath(const std::string& config_path)
 	{
 		Document doc = loadDocument(config_path);
 		assert(doc.IsObject());
@@ -183,7 +168,7 @@ namespace ConfigLoader
 		auto all_elements = getAllElements(doc);
 		auto all_element_groups = getAllElementGroups(doc, all_elements);
 		auto all_element_children = getAllElementChildren(doc, all_elements, all_element_groups);
-		const auto& configuration = Configuration(std::move(all_elements), std::move(all_element_groups), std::move(all_element_children));
+		const auto& configuration = Config(std::move(all_elements), std::move(all_element_groups), std::move(all_element_children));
 		return configuration;
 	}
 

@@ -6,7 +6,7 @@
 
 namespace ConfigLoader
 {
-	Configuration loadConfigAtPath(const std::string& config_path);
+	Config loadConfigAtPath(const std::string& config_path);
 
 
 };

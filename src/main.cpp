@@ -6,27 +6,31 @@
 //  Copyright © 2016 Razvan Pascalau. All rights reserved.
 //
 #define CATCH_CONFIG_RUNNER
+
+#include "Svg_parser.h"
 #include "Catch/catch.hpp"
-#include "SvgParser.h"
+#include "spdlog/spdlog.h"
 
 TEST_CASE("MainTestCase", "[Main]")
 {
 }
 
-int main( int argc, char* const argv[] )
+int main(int argc, char* const argv[])
 {
-	// global setup...
+    try {
+        auto console = spdlog::stdout_color_mt("console");
+        console->info("Entering main!");
 
-	int result = Catch::Session().run( argc, argv );
+        // global setup...
+        int result = Catch::Session().run(argc, argv);
 
-	// global clean-up...
-	const auto path = std::string{ "/Users/razvanpascalau/dev/test.svg" };
-	//TODO add a logging framework instead of printf
-	if (argc < 2)
-	{
-		printf("Too few parameters: we need to pass the configuration file as parameter");
-		return 1;
-	}
-	parseSVG(path, argv[1]);
-	return result;
+        // global clean-up...
+        const auto testFilePath = std::string{"/Users/razvanpascalau/dev/test.svg"};
+        const auto configurationFilePath = std::string{"/Users/razvanpascalau/dev/SVGRasterizer/configuration.json"};
+        parse_svg_file(testFilePath, configurationFilePath);
+        return result;
+    }
+    catch (const spdlog::spdlog_ex& ex) {
+        std::cout << "Log failed: " << ex.what() << std::endl;
+    }
 }

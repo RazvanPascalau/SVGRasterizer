@@ -6,9 +6,10 @@
 //  Copyright © 2016 Razvan Pascalau. All rights reserved.
 //
 #pragma once
+
 #include <string>
 
-bool parseSVG(const std::string &svgFilePath, const std::string& configFilePath);
+bool parse_svg_file(const std::string& svg_file_path, const std::string& config_file_path);
 
 //class SVGParser {
 //

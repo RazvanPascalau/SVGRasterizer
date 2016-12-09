@@ -7,43 +7,51 @@
 #include <string>
 #include <sparsehash/dense_hash_map>
 #include <gsl/string_span>
-#include "SvgElement.h"
+#include "Svg_element.h"
 
-namespace Configuration
-{
-	struct Raw
-	{
-		using ElementContainerType = std::vector<SvgElement>;
-		using ChildrenMapType = google::dense_hash_map<std::string, std::vector<std::string>>;
-		using ElementGroupType =  google::dense_hash_map<std::string, std::vector<std::string>>;
-		Raw(Raw&&) = default;
+namespace configuration {
+    struct Raw {
+        using Element_container_type = std::vector<Svg_element>;
+        using Children_map_type = google::dense_hash_map<std::string, std::vector<std::string>>;
+        using Element_group_type =  google::dense_hash_map<std::string, std::vector<std::string>>;
 
-		Raw(ElementContainerType&& elements_, ElementGroupType&& groups_,
-		    ChildrenMapType&& children_);
+        Raw() = default;
 
-		const ElementContainerType elements;
-		const ElementGroupType groups;
-		const ChildrenMapType children;
-	};
+        Raw(Raw&&) = default;
 
-	class Indexed
-	{
-		using ElementIndexType = uint32_t;
-	public:
-		Indexed() = default;
-		Indexed(Raw&&)
-		Indexed(const Indexed&) = default;
-		Indexed(Indexed&&) = default;
-		Indexed& operator =(const Indexed&) = default;
-		Indexed& operator =(Indexed&&) = default;
-		~Indexed() = default;
+        Raw(const Raw&) = default;
 
+        Raw(Element_container_type&& elements_, Element_group_type&& groups_,
+                Children_map_type&& children_);
 
+        const Element_container_type elements;
+        const Element_group_type groups;
+        const Children_map_type children;
+    };
 
-		ElementIndexType get_index_of_element(const std::string& name) const;
+    class Indexed {
+        using Element_index_type = uint32_t;
+    public:
+        Indexed() = default;
 
-	private:
-		const Raw raw_config;
-	};
+        Indexed(Raw&&);
+
+        Indexed(const Indexed&) = default;
+
+        Indexed(Indexed&&) = default;
+
+        Indexed& operator=(const Indexed&) = default;
+
+        Indexed& operator=(Indexed&&) = default;
+
+        ~Indexed() = default;
+
+        Element_index_type get_index_of_element(const std::string& name) const;
+        const Raw& get_raw_config() const;
+
+    private:
+        const Raw raw_config;
+    };
 }
-using Config = Configuration::Raw;
+using Raw_config = configuration::Raw;
+using Indexed_config = configuration::Indexed;

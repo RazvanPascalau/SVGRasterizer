@@ -1,19 +1,73 @@
-{ 
-	"elements":["a", "circle", "defs", "ellipse", "g", "glyph", "line", "marker", "mask", "missing-glyph", "pattern", "polygon", "polyline", "rect", "svg", "switch", "symbol"],
-	"element_groups":[
-	{
-		"name":"containters",
-		"elements":[ "a", "defs", "glyph", "g", "marker", "mask", "missing-glyph", "pattern", "svg", "switch","symbol"]
-	},
-  	{ 
-  		"name":"basic shapes",
-  		"elements":["circle", "ellipse", "line", "polygon", "polyline", "rect"]
-  	}
+{
+  "elements": [
+    "a",
+    "circle",
+    "defs",
+    "ellipse",
+    "g",
+    "glyph",
+    "line",
+    "marker",
+    "mask",
+    "missing-glyph",
+    "pattern",
+    "polygon",
+    "polyline",
+    "rect",
+    "svg",
+    "switch",
+    "symbol"
   ],
-  "attributes":[],
-  "element_children":[
-  	{"parent":"svg", "children":["basic shapes","containters"]},
-  	{"parent":"g", "children":["g","circle"]},
-  	{"parent":"circle", "children":["circle"]}
+  "element_groups": [
+    {
+      "name": "containters",
+      "elements": [
+        "a",
+        "defs",
+        "glyph",
+        "g",
+        "marker",
+        "mask",
+        "missing-glyph",
+        "pattern",
+        "svg",
+        "switch",
+        "symbol"
+      ]
+    },
+    {
+      "name": "basic shapes",
+      "elements": [
+        "circle",
+        "ellipse",
+        "line",
+        "polygon",
+        "polyline",
+        "rect"
+      ]
+    }
+  ],
+  "attributes": [],
+  "element_children": [
+    {
+      "parent": "svg",
+      "children": [
+        "basic shapes",
+        "containters"
+      ]
+    },
+    {
+      "parent": "g",
+      "children": [
+        "g",
+        "circle"
+      ]
+    },
+    {
+      "parent": "circle",
+      "children": [
+        "circle"
+      ]
+    }
   ]
 }

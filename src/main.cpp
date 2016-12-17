@@ -7,7 +7,7 @@
 //
 #define CATCH_CONFIG_RUNNER
 
-#include "Svg_parser.h"
+#include "Svg_parser.hpp"
 #include "Catch/catch.hpp"
 #include "spdlog/spdlog.h"
 

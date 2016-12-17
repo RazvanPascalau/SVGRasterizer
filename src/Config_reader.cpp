@@ -2,7 +2,7 @@
 // Created by Razvan Pascalau on 16/08/16.
 //
 
-#include "Config_reader.h"
+#include "Config_reader.hpp"
 #include <iostream>
 #include "rapidjson/filereadstream.h"
 #include "rapidjson/document.h"
@@ -17,7 +17,7 @@ namespace configuration {
         ////// TODO: move this from here /////////////////////////////////////////////////////////
         std::ostream& operator<<(std::ostream& stream, const Svg_element& element_to_print)
         {
-            stream << element_to_print.name;
+            stream << gsl::to_string(element_to_print.get_name());
             return stream;
         }
 
@@ -32,7 +32,7 @@ namespace configuration {
         }
         //////////////////////////////////////////////////////////////////////////////////////////
 
-        Raw_config::Element_container_type get_all_elements(const Document& doc)
+        auto get_all_elements(const Document& doc) -> Raw_config::Element_container_type
         {
             // load elements
             const auto elements_it = doc.FindMember("elements");
@@ -41,17 +41,16 @@ namespace configuration {
 
             std::vector<Svg_element> all_elements;
             const auto raw_elements = elements_it->value.GetArray();
-            for (const auto& singleElement : raw_elements)
-            {
+            for (const auto& singleElement : raw_elements) {
                 assert(singleElement.IsString());
-                all_elements.emplace_back(Svg_element{singleElement.GetString()});
+                all_elements.emplace_back(singleElement.GetString());
             }
             std::sort(std::begin(all_elements), std::end(all_elements));
             return all_elements;
         }
 
-        Raw_config::Element_group_type
-        get_all_element_groups(const Document& doc, const std::vector<Svg_element>& all_elements_)
+        auto get_all_element_groups(const Document& doc,
+                const std::vector<Svg_element>& all_elements_) -> Raw_config::Element_group_type
         {
             const auto element_groups_it = doc.FindMember("element_groups");
             assert(element_groups_it!=doc.MemberEnd());
@@ -79,8 +78,8 @@ namespace configuration {
 
                 for (const auto& raw_single_group_element : raw_array_of_group_members) {
                     assert(raw_single_group_element.IsString());
-                    single_group_members.emplace_back(std::string{raw_single_group_element.GetString(),
-                                                                  raw_single_group_element.GetStringLength()});
+                    single_group_members.emplace_back(raw_single_group_element.GetString(),
+                            raw_single_group_element.GetStringLength());
                 }
                 all_element_groups[group_name] = std::move(single_group_members);
             }
@@ -94,9 +93,9 @@ namespace configuration {
             return all_element_groups;
         }
 
-        Raw_config::Children_map_type
+        auto
         getAllElementChildren(const rapidjson::Document& doc, const std::vector<Svg_element>& all_elements_,
-                const Raw_config::Element_group_type& element_groups_)
+                const Raw_config::Element_group_type& element_groups_) -> Raw_config::Children_map_type
         {
             Raw_config::Children_map_type all_element_children;
             all_element_children.set_empty_key(std::string{""});
@@ -142,7 +141,7 @@ namespace configuration {
             return all_element_children;
         }
 
-        Document loadDocument(const std::string& documentPath)
+        auto loadDocument(const std::string& documentPath) -> Document
         {
             FILE* fp = fopen(documentPath.c_str(), "r"); // non-Windows use "r"
             char readBuffer[65536]; //TODO: check this magic number
@@ -154,7 +153,7 @@ namespace configuration {
             return doc;
         }
 
-        Raw_config readRawConfigAtPath(const std::string& config_path)
+        auto readRawConfigAtPath(const std::string& config_path) -> Raw_config
         {
             Document doc = loadDocument(config_path);
             assert(doc.IsObject());
@@ -167,7 +166,7 @@ namespace configuration {
             return configuration;
         }
 
-        Indexed_config readIndexedConfigAtPath(const std::string& config_path)
+        auto readIndexedConfigAtPath(const std::string& config_path) -> Indexed_config
         {
             auto raw_config = readRawConfigAtPath(config_path);
             Indexed_config indexed_config(std::move(raw_config));

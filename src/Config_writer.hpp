@@ -3,10 +3,10 @@
 //
 #pragma once
 #include <string>
-#include "Configuration.h"
+#include "Configuration.hpp"
 
 namespace configuration {
     namespace writer {
-        void write_to_file(const Raw_config& raw_config, const std::string& out_file_path);
+        auto write_to_file(const Raw_config& raw_config, const std::string& out_file_path) -> void;
     }
 };

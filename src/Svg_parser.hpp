@@ -9,7 +9,7 @@
 
 #include <string>
 
-bool parse_svg_file(const std::string& svg_file_path, const std::string& config_file_path);
+auto parse_svg_file(const std::string& svg_file_path, const std::string& config_file_path) -> bool;
 
 //class SVGParser {
 //

@@ -2,7 +2,7 @@
 // Created by Razvan Pascalau on 18/08/16.
 //
 
-#include "Configuration.h"
+#include "Configuration.hpp"
 
 namespace configuration {
     Raw::Raw(Raw::Element_container_type&& elements_, Raw::Element_group_type&& groups_,
@@ -16,12 +16,12 @@ namespace configuration {
     {
     }
 
-    const Raw& Indexed::get_raw_config() const
+    auto Indexed::get_raw_config() const -> const Raw&
     {
         return raw_config;
     }
 
-    Indexed::Element_index_type Indexed::get_index_of_element(const std::string& name) const
+    auto Indexed::get_index_of_element(gsl::cstring_span<> name) const -> Indexed::Element_index_type
     {
         Indexed::Element_index_type index_of_name = std::numeric_limits<Indexed::Element_index_type>::max();
         const auto& all_elements = raw_config.elements;
@@ -30,13 +30,19 @@ namespace configuration {
         //@TODO: check if this is correct
         auto searched_name_it = std::lower_bound(std::begin(all_elements), std::end(all_elements),
                 name);
-        while (searched_name_it!=all_elements.end() && searched_name_it->name!=name)
+        while (searched_name_it!=all_elements.end() && searched_name_it->get_name()!=name)
             ++searched_name_it;
 
-        if (searched_name_it!=all_elements.end() && searched_name_it->name==name) {
+        if (searched_name_it!=all_elements.end() && searched_name_it->get_name()==name) {
             index_of_name = std::distance(all_elements.begin(), searched_name_it);
         }
         return index_of_name;
+    }
+
+    auto Indexed::get_index_of_element(const std::string& name) const -> Indexed::Element_index_type
+    {
+        const gsl::cstring_span<> name_span = name;
+        return get_index_of_element(name_span);
     }
 
 }

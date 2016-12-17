@@ -48,16 +48,17 @@ source_group("thirdparty\\spdlog" FILES {"SPDLOG_SRC"})
 
 set(SVG_RASTERIZER_PATH "${CMAKE_SOURCE_DIR}/src")
 set(SVG_RASTERIZER_SRC	"${SVG_RASTERIZER_PATH}/main.cpp"
-						"${SVG_RASTERIZER_PATH}/Svg_parser.h"
+						"${SVG_RASTERIZER_PATH}/Svg_parser.hpp"
 						"${SVG_RASTERIZER_PATH}/Svg_parser.cpp"
-						"${SVG_RASTERIZER_PATH}/Svg_element.h"
+						"${SVG_RASTERIZER_PATH}/Svg_element.hpp"
 						"${SVG_RASTERIZER_PATH}/Svg_attribute.hpp"
 						"${SVG_RASTERIZER_PATH}/Config_reader.cpp"
-						"${SVG_RASTERIZER_PATH}/Config_reader.h"
+						"${SVG_RASTERIZER_PATH}/Config_reader.hpp"
 						"${SVG_RASTERIZER_PATH}/Configuration.cpp"
-						"${SVG_RASTERIZER_PATH}/Configuration.h"
+						"${SVG_RASTERIZER_PATH}/Configuration.hpp"
 						"${SVG_RASTERIZER_PATH}/Config_writer.cpp"
-						"${SVG_RASTERIZER_PATH}/Config_writer.h")
+						"${SVG_RASTERIZER_PATH}/Config_writer.hpp"
+						"${SVG_RASTERIZER_PATH}/Utils.hpp")
 include_directories(${THIRD_PARTY_PATH}
 					${SVG_RASTERIZER_PATH}
 					${CMAKE_SOURCE_DIR}

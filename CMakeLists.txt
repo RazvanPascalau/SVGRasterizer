@@ -17,13 +17,13 @@ set(CATCH_SRC "${THIRD_PARTY_PATH}/Catch/catch.hpp")
 set(PUGIXML_SRC "${THIRD_PARTY_PATH}/pugixml/pugiconfig.hpp"
 				"${THIRD_PARTY_PATH}/pugixml/pugixml.hpp"
 				"${THIRD_PARTY_PATH}/pugixml/pugixml.cpp")
-set(GSL_SRC "${THIRD_PARTY_PATH}/GSL/gsl/gsl"
-			"${THIRD_PARTY_PATH}/GSL/gsl/gsl_assert"
-			"${THIRD_PARTY_PATH}/GSL/gsl/gsl_byte"
-			"${THIRD_PARTY_PATH}/GSL/gsl/gsl_util"
-			"${THIRD_PARTY_PATH}/GSL/gsl/multi_span"
-			"${THIRD_PARTY_PATH}/GSL/gsl/span"
-			"${THIRD_PARTY_PATH}/GSL/gsl/string_span")
+set(GSL_SRC "${THIRD_PARTY_PATH}/GSL/include/gsl/gsl"
+			"${THIRD_PARTY_PATH}/GSL/include/gsl/gsl_assert"
+			"${THIRD_PARTY_PATH}/GSL/include/gsl/gsl_byte"
+			"${THIRD_PARTY_PATH}/GSL/include/gsl/gsl_util"
+			"${THIRD_PARTY_PATH}/GSL/include/gsl/multi_span"
+			"${THIRD_PARTY_PATH}/GSL/include/gsl/span"
+			"${THIRD_PARTY_PATH}/GSL/include/gsl/string_span")
 SET(SPARSE_HASH_SRC "${THIRD_PARTY_PATH}/sparsehash/dense_hash_map"
 		"${THIRD_PARTY_PATH}/sparsehash/template_util.h"
 		"${THIRD_PARTY_PATH}/sparsehash/type_traits.h")
@@ -58,7 +58,9 @@ set(SVG_RASTERIZER_SRC	"${SVG_RASTERIZER_PATH}/main.cpp"
 						"${SVG_RASTERIZER_PATH}/Configuration.hpp"
 						"${SVG_RASTERIZER_PATH}/Config_writer.cpp"
 						"${SVG_RASTERIZER_PATH}/Config_writer.hpp"
-						"${SVG_RASTERIZER_PATH}/Utils.hpp")
+						"${SVG_RASTERIZER_PATH}/Utils.hpp"
+		        		"${SVG_RASTERIZER_PATH}/Svg_element_processor.cpp"
+						"${SVG_RASTERIZER_PATH}/Svg_element_processor.hpp")
 include_directories(${THIRD_PARTY_PATH}
 					${SVG_RASTERIZER_PATH}
 					${CMAKE_SOURCE_DIR}

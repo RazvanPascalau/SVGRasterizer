@@ -9,22 +9,35 @@
 #include "Svg_parser.hpp"
 #include <iostream>
 #include "pugixml/pugixml.hpp"
-#include "gsl/gsl"
 #include "Config_reader.hpp"
 #include "Config_writer.hpp"
 #include "Utils.hpp"
+#include "Svg_element_processor.hpp"
 
-template<typename ElementType>
-auto parseRawElement(const ElementType& raw_element, const Indexed_config& config) -> bool
+auto parse_raw_attribute(const pugi::xml_attribute& raw_attribute, const Indexed_config& config) -> bool
 {
-    gsl::cstring_span<> element_name = gsl::ensure_z(raw_element.name());
-    auto index = config.get_index_of_element(element_name);
-    //@TODO: replace this workaround with optional/structured bindings from C++17
-    if(utils::is_index_valid(index) == false)
-        return false;
 
     return false;
 }
+
+auto parse_raw_element(const pugi::xml_node& raw_element, const Indexed_config& config) -> bool
+{
+    std::string element_name = raw_element.name();
+
+    auto index = config.get_index_of_element(element_name);
+    //@TODO: replace this workaround with optional/structured bindings from C++17
+    if (!utils::is_index_valid(index))
+        return false;
+    auto& elem_processor = get_element_processor(element_name);
+    const auto& raw_attributes = raw_element.attributes();
+    for(const auto& single_attribute : raw_attributes)
+    {
+        parse_raw_attribute(single_attribute, config);
+    }
+    bool success = elem_processor(config);
+    return success;
+}
+
 
 auto parse_svg_file(const std::string& svg_file_path, const std::string& config_file_path) -> bool
 {
@@ -37,11 +50,12 @@ auto parse_svg_file(const std::string& svg_file_path, const std::string& config_
 
     //start with elements
     std::for_each(std::begin(doc), std::end(doc), [&configuration](const auto& raw_element) {
-        parseRawElement(raw_element, configuration);
+        parse_raw_element(raw_element, configuration);
     });
 
     //@TODO: remove this
-    configuration::writer::write_to_file(configuration.get_raw_config(), "/Users/razvanpascalau/dev/SVGRasterizer/configuration_out.json");
+    configuration::writer::write_to_file(configuration.get_raw_config(),
+            "/Users/razvanpascalau/dev/SVGRasterizer/configuration_out.json");
     //    std::cout << "Load result: " << result.description() << ", mesh name: " << doc.child("mesh").attribute("name").value() << std::endl;
     return false;
 }

@@ -58,7 +58,6 @@ namespace configuration {
             const auto raw_array_of_groups = element_groups_it->value.GetArray();
 
             Raw_config::Element_group_type all_element_groups;
-            all_element_groups.set_empty_key(std::string{""});
             for (const auto& raw_single_group: raw_array_of_groups) {
                 assert(raw_single_group.IsObject());
                 const auto& single_group = raw_single_group.GetObject();
@@ -81,7 +80,7 @@ namespace configuration {
                     single_group_members.emplace_back(raw_single_group_element.GetString(),
                             raw_single_group_element.GetStringLength());
                 }
-                all_element_groups[group_name] = std::move(single_group_members);
+                all_element_groups.emplace( std::make_pair(group_name, single_group_members));
             }
 
             for (auto& array_name_pair : all_element_groups) {
@@ -98,7 +97,6 @@ namespace configuration {
                 const Raw_config::Element_group_type& element_groups_) -> Raw_config::Children_map_type
         {
             Raw_config::Children_map_type all_element_children;
-            all_element_children.set_empty_key(std::string{""});
 
             // load elements
             const auto element_children_it = doc.FindMember("element_children");
@@ -135,7 +133,7 @@ namespace configuration {
                         all_children.emplace_back(std::move(child));
                     }
                     std::sort(std::begin(all_children), std::end(all_children));
-                    all_element_children[parent_element_name] = std::move(all_children);
+                    all_element_children.emplace(parent_element_name, all_children);
                 }
             }
             return all_element_children;

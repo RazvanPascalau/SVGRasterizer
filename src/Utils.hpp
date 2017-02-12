@@ -12,6 +12,6 @@ namespace utils
     template <typename IntegralType>
     inline bool is_index_valid(const IntegralType index)
     {
-        return index == std::numeric_limits<IntegralType>::max();
+        return index < std::numeric_limits<IntegralType>::max();
     }
 }

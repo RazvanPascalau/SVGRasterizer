@@ -3,6 +3,7 @@
 //
 
 #include "Configuration.hpp"
+#include <cassert>
 
 namespace configuration {
     Raw::Raw(Raw::Element_container_type&& elements_, Raw::Element_group_type&& groups_,
@@ -21,7 +22,7 @@ namespace configuration {
         return raw_config;
     }
 
-    auto Indexed::get_index_of_element(gsl::cstring_span<> name) const -> Indexed::Element_index_type
+    auto Indexed::get_index_of_element(const std::string& name) const -> Indexed::Element_index_type
     {
         Indexed::Element_index_type index_of_name = std::numeric_limits<Indexed::Element_index_type>::max();
         const auto& all_elements = raw_config.elements;
@@ -39,10 +40,9 @@ namespace configuration {
         return index_of_name;
     }
 
-    auto Indexed::get_index_of_element(const std::string& name) const -> Indexed::Element_index_type
-    {
-        const gsl::cstring_span<> name_span = name;
-        return get_index_of_element(name_span);
-    }
+//    auto Indexed::get_index_of_element(const std::string& name) const -> Indexed::Element_index_type
+//    {
+//        return get_index_of_element(name);
+//    }
 
 }

@@ -24,9 +24,6 @@ set(GSL_SRC "${THIRD_PARTY_PATH}/GSL/include/gsl/gsl"
 			"${THIRD_PARTY_PATH}/GSL/include/gsl/multi_span"
 			"${THIRD_PARTY_PATH}/GSL/include/gsl/span"
 			"${THIRD_PARTY_PATH}/GSL/include/gsl/string_span")
-SET(SPARSE_HASH_SRC "${THIRD_PARTY_PATH}/sparsehash/dense_hash_map"
-		"${THIRD_PARTY_PATH}/sparsehash/template_util.h"
-		"${THIRD_PARTY_PATH}/sparsehash/type_traits.h")
 #@TODO: refactor to include all third parties as EXTERNAL_PROJECT
 SET(SPDLOG_SRC "${THIRD_PARTY_PATH}/spdlog/include/spdlog/async_logger.h"
         "${THIRD_PARTY_PATH}/spdlog/include/spdlog/logger.h"
@@ -42,7 +39,6 @@ source_group("thirdparty\\EnumBitMask" FILES ${ENUM_BITMASK_SRC})
 source_group("thirdparty\\Catch" FILES ${CATCH_SRC})
 source_group("thirdparty\\pugixml" FILES ${PUGIXML_SRC})
 source_group("thirdparty\\GSL" FILES ${GSL_SRC})
-source_group("thirdparty\\sparsehash" FILES ${SPARSE_HASH_SRC})
 source_group("thirdparty\\spdlog" FILES {"SPDLOG_SRC"})
 ########################################################
 
@@ -64,9 +60,8 @@ set(SVG_RASTERIZER_SRC	"${SVG_RASTERIZER_PATH}/main.cpp"
 include_directories(${THIRD_PARTY_PATH}
 					${SVG_RASTERIZER_PATH}
 					${CMAKE_SOURCE_DIR}
-					${THIRD_PARTY_PATH}/GSL
+					${THIRD_PARTY_PATH}/GSL/include
 					${THIRD_PARTY_PATH}/rapidjson/include
-					${THIRD_PARTY_PATH}/sparsehash
                     ${THIRD_PARTY_PATH}/spdlog/include)
 add_subdirectory(${THIRD_PARTY_PATH}/rapidjson)
 

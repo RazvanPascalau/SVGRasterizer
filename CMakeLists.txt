@@ -7,8 +7,8 @@ project(SVGRasterizer)
 #set(CMAKE_CURRENT_BINARY_DIR ${CMAKE_SOURCE_DIR}/build)
 #set(CMAKE_BUILD_FILES_DIRECTORY ${CMAKE_SOURCE_DIR}/build)
 #set(CMAKE_BUILD_DIRECTORY ${CMAKE_SOURCE_DIR}/build)
-set (CMAKE_CXX_STANDARD 14)
-
+#set (CMAKE_CXX_STANDARD 14) # left to C++14 untill cmake 3.8 which supports C++17
+add_definitions(-std=c++1z)
 ##################### third party #####################
 set(THIRD_PARTY_PATH "${CMAKE_SOURCE_DIR}/thirdparty")
 set(ENUM_BITMASK_SRC	"${THIRD_PARTY_PATH}/EnumBitMask/EnumBitMask/EnumBitMask.cpp"
@@ -56,7 +56,7 @@ set(SVG_RASTERIZER_SRC	"${SVG_RASTERIZER_PATH}/main.cpp"
 						"${SVG_RASTERIZER_PATH}/Config_writer.hpp"
 						"${SVG_RASTERIZER_PATH}/Utils.hpp"
 		        		"${SVG_RASTERIZER_PATH}/Svg_element_processor.cpp"
-						"${SVG_RASTERIZER_PATH}/Svg_element_processor.hpp")
+						"${SVG_RASTERIZER_PATH}/Svg_element_processor.hpp" src/Svg_element.cpp)
 include_directories(${THIRD_PARTY_PATH}
 					${SVG_RASTERIZER_PATH}
 					${CMAKE_SOURCE_DIR}

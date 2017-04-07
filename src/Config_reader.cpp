@@ -17,7 +17,7 @@ namespace configuration {
         ////// TODO: move this from here /////////////////////////////////////////////////////////
         std::ostream& operator<<(std::ostream& stream, const Svg_element& element_to_print)
         {
-            stream << gsl::to_string(element_to_print.get_name());
+            stream << element_to_print.get_name();
             return stream;
         }
 
@@ -43,7 +43,9 @@ namespace configuration {
             const auto raw_elements = elements_it->value.GetArray();
             for (const auto& singleElement : raw_elements) {
                 assert(singleElement.IsString());
-                all_elements.emplace_back(singleElement.GetString());
+                auto singleElementAsString = singleElement.GetString();
+
+                //all_elements.emplace_back();
             }
             std::sort(std::begin(all_elements), std::end(all_elements));
             return all_elements;

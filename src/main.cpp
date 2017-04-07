@@ -25,7 +25,7 @@ int main(int argc, char* const argv[])
         int result = Catch::Session().run(argc, argv);
 
         // global clean-up...
-        const auto testFilePath = std::string{"/Users/razvanpascalau/dev/test.svg"};
+        const auto testFilePath = std::string{"/Users/razvanpascalau/dev/SVGRasterizer/test.svg"};
         const auto configurationFilePath = std::string{"/Users/razvanpascalau/dev/SVGRasterizer/configuration.json"};
         parse_svg_file(testFilePath, configurationFilePath);
         return result;

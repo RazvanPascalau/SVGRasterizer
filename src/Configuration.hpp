@@ -46,9 +46,6 @@ namespace configuration {
 
         ~Indexed() = default;
 
-        //if not found return largest integral the type can represent
-        auto get_index_of_element(const std::string& name) const -> Element_index_type;
-
         auto get_raw_config() const -> const Raw&;
 
     private:

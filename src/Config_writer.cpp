@@ -14,7 +14,7 @@ namespace configuration {
         using rapidjson::PrettyWriter;
 
         template<typename Writer>
-        auto display(Writer& writer) -> void
+        auto display(Writer& writer)
         {
             writer.StartObject();  // write "{"
             writer.String("hello"); // write string "hello"
@@ -38,18 +38,18 @@ namespace configuration {
         }
 
         template<typename Writer>
-        auto write_elements(const Raw_config& raw_config, Writer& writer) -> void
+        auto write_elements(const Raw_config& raw_config, Writer& writer)
         {
             writer.Key("elements");
             writer.StartArray();
             for (const auto& single_element : raw_config.elements) {
-                writer.String(gsl::to_string(single_element.get_name()).c_str());
+                writer.String(single_element.get_name().c_str());
             }
             writer.EndArray();
         }
 
         template<typename Writer>
-        auto write_element_groups(const Raw_config& raw_config, Writer& writer) -> void
+        auto write_element_groups(const Raw_config& raw_config, Writer& writer)
         {
             writer.Key("element_groups");
             writer.StartArray();
@@ -70,7 +70,7 @@ namespace configuration {
         }
 
         template<typename Writer>
-        auto write_attributes(const Raw_config& raw_config, Writer& writer) -> void
+        auto write_attributes(const Raw_config& raw_config, Writer& writer)
         {
             writer.Key("attributes");
             writer.StartArray();
@@ -79,7 +79,7 @@ namespace configuration {
         }
 
         template<typename Writer>
-        auto write_element_children(const Raw_config& raw_config, Writer& writer) -> void
+        auto write_element_children(const Raw_config& raw_config, Writer& writer)
         {
             //TODO: think about a possible strategy to replace elements that form a group with the group itself to preserve 0% input/output diff
             writer.Key("element_children");
@@ -98,6 +98,11 @@ namespace configuration {
                 writer.EndObject();
             }
             writer.EndArray();
+        }
+
+        auto write_to_file(const Indexed_config& config, const std::string& out_file_path) -> void
+        {
+            write_to_file(config.get_raw_config(), out_file_path);
         }
 
         auto write_to_file(const Raw_config& raw_config, const std::string& out_file_path) -> void

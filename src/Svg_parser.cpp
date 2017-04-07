@@ -22,13 +22,10 @@ auto parse_raw_attribute(const pugi::xml_attribute& raw_attribute, const Indexed
 
 auto parse_raw_element(const pugi::xml_node& raw_element, const Indexed_config& config) -> bool
 {
-    std::string element_name = raw_element.name();
-
-    auto index = config.get_index_of_element(element_name);
-    //@TODO: replace this workaround with optional/structured bindings from C++17
-    if (!utils::is_index_valid(index))
+    auto element_id = Svg_element::get_id_for_name(raw_element.name());
+    if (!element_id)
         return false;
-    auto& elem_processor = get_element_processor(element_name);
+    auto& elem_processor = get_element_processor(*element_id);
     const auto& raw_attributes = raw_element.attributes();
     for(const auto& single_attribute : raw_attributes)
     {
@@ -54,7 +51,7 @@ auto parse_svg_file(const std::string& svg_file_path, const std::string& config_
     });
 
     //@TODO: remove this
-    configuration::writer::write_to_file(configuration.get_raw_config(),
+    configuration::writer::write_to_file(configuration,
             "/Users/razvanpascalau/dev/SVGRasterizer/configuration_out.json");
     //    std::cout << "Load result: " << result.description() << ", mesh name: " << doc.child("mesh").attribute("name").value() << std::endl;
     return false;

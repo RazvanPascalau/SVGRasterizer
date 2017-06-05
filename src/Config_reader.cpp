@@ -2,7 +2,7 @@
 // Created by Razvan Pascalau on 16/08/16.
 //
 
-#include "Config_reader.hpp"
+#include "SVGRasterizer/Config_reader.hpp"
 #include <iostream>
 #include "rapidjson/filereadstream.h"
 #include "rapidjson/document.h"

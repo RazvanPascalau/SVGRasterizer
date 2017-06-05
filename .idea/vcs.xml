@@ -2,9 +2,9 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/thirdparty/EnumBitMask" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/thirdparty/GSL" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/thirdparty/rapidjson" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/thirdparty/spdlog" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/libs/GSL" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/libs/pugixml" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/libs/rapidjson" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/libs/spdlog" vcs="Git" />
   </component>
 </project>

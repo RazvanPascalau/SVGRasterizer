@@ -9,6 +9,11 @@
 #include <unordered_map>
 #include "Svg_element.hpp"
 
+class Configuration {
+public:
+private:
+
+};
 namespace configuration {
     struct Raw final {
         using Element_container_type = std::vector<Svg_element>;

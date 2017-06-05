@@ -35,7 +35,7 @@ auto get_element_processor(Svg_elem_id element_id) -> Element_processor&
 
 bool parse_svg(const Indexed_config&)
 {
-    throw "parseSvg: This needs to be implemented";
+    //TODO: implement this
     return false;
 }
 

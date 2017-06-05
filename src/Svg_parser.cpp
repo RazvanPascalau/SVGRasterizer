@@ -8,7 +8,7 @@
 
 #include "Svg_parser.hpp"
 #include <iostream>
-#include "pugixml/pugixml.hpp"
+#include "pugixml.hpp"
 #include "Config_reader.hpp"
 #include "Config_writer.hpp"
 #include "Utils.hpp"

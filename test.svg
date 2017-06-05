@@ -1,0 +1,102 @@
+<svg viewBox="0 0 95 50"
+     xmlns="http://www.w3.org/2000/svg">
+   <g stroke="green" fill="white" stroke-width="5">
+     <circle cx="25" cy="25" r="15"/>
+     <circle cx="40" cy="25" r="15"/>
+     <circle cx="55" cy="25" r="15"/>
+     <circle cx="70" cy="25" r="15"/>
+   </g>
+</svg>
+<svg viewBox="0 0 95 50"
+     xmlns="http://www.w3.org/2000/svg">
+   <g stroke="green" fill="white" stroke-width="5">
+     <circle cx="25" cy="25" r="15"/>
+     <circle cx="40" cy="25" r="15"/>
+     <circle cx="55" cy="25" r="15"/>
+     <circle cx="70" cy="25" r="15"/>
+   </g>
+</svg>
+<!-- <?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/css" href="../../customcolors.css"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="text/ecmascript" zoomAndPan="magnify" contentStyleType="text/css" id="SR_CA_29567941" enable-background="new 0 0 640 480" version="1.1" width="720" xml:space="preserve" preserveAspectRatio="xMidYMid meet" viewBox="0 0 720 1200" height="1200" x="0px" y="0px">
+  <mr:routes xmlns:mr="http://www.navteq.com/SaR3/1.0" sourceLinkPVId="29567941">
+    <mr:route conditionId="1414530514" destinationLinkPVId="755293590">
+      <mr:lane sourceLanePVId="23815319" destinationLanePVId="23815322">
+        <mr:SVGObject refId="A3"/>
+      </mr:lane>
+      <mr:lane sourceLanePVId="23815318" destinationLanePVId="23815321">
+        <mr:SVGObject refId="A3"/>
+      </mr:lane>
+    </mr:route>
+    <mr:route conditionId="1414530513" destinationLinkPVId="755293592">
+      <mr:lane sourceLanePVId="23815318" destinationLanePVId="20722389">
+        <mr:SVGObject refId="A9"/>
+        <mr:SVGObject refId="A4"/>
+        <mr:SVGObject refId="A2"/>
+      </mr:lane>
+      <mr:lane sourceLanePVId="23815320" destinationLanePVId="20722390">
+        <mr:SVGObject refId="A8"/>
+        <mr:SVGObject refId="A4"/>
+        <mr:SVGObject refId="A2"/>
+      </mr:lane>
+    </mr:route>
+  </mr:routes>
+  
+  <g id="Signs" transform="translate(-447.318306,203.772929) scale(2.216454,2.216454)">
+    <g id="SIGN_R1">
+      <g type="Panel" id="A1">
+        <g type="Background" id="A4">
+          <path class="background_fill_21" d="M526.501,98.34v17.224c0,2.475-2.025,4.5-4.5,4.5H385.548c-2.475,0-4.5-2.025-4.5-4.5V98.34"/>
+        </g>
+        <g type="Arrow" id="A8">
+          <polygon class="arrow_fill_5" points="508.891,101.966 504.986,101.965 504.986,106.686 498.785,106.686 508.891,115.184 519.001,106.686 512.796,106.686 512.796,101.965    "/>
+        </g>
+        <g type="Arrow" id="A9">
+          <polygon class="arrow_fill_5" points="398.654,101.966 394.75,101.965 394.75,106.686 388.548,106.686 398.654,115.184 408.764,106.686 402.559,106.686 402.559,101.965    "/>
+        </g>
+      </g>
+      <g type="Panel" id="A2">
+        <g type="Background" id="A5">
+          <path class="background_fill_1" d="M381.048,98.341V24.13c0-2.475,2.025-4.5,4.5-4.5h136.453c2.475,0,4.5,2.025,4.5,4.5v74.211"/>
+          <line y2="66.392" x1="471.582" x2="511.531" class="background_fill_27 background_stroke_22" y1="66.392"/>
+          <line y2="66.392" x1="394.186" x2="434.135" class="background_fill_27 background_stroke_22" y1="66.392"/>
+        </g>
+        <g type="Text" id="A10">
+          <text x="477.3057" font-size="13.5" y="79.1064" class="text_fill_22 text_font-family_2 text_font-weight_2">SUD</text>
+        </g>
+        <g type="Text" id="A11">
+          <text x="394.2861" font-size="13.5" y="79.1064" class="text_fill_22 text_font-family_2 text_font-weight_2">NORD</text>
+        </g>
+        <g type="Text" id="A12">
+          <text x="467.9297" font-size="13.5" y="63.5664" class="text_fill_22 text_font-family_2 text_font-weight_2">SOUTH</text>
+        </g>
+        <g type="Text" id="A13">
+          <text x="390.1621" font-size="13.5" y="63.5664" class="text_fill_22 text_font-family_2 text_font-weight_2">NORTH</text>
+        </g>
+        <g type="Text" id="A14">
+          <text x="387.8291" font-size="16.5" y="39.4814" class="text_fill_22 text_font-family_2 text_font-weight_2">Islington Avenue</text>
+        </g>
+      </g>
+    </g>
+    <g id="SIGN_L1">
+      <g type="Panel" id="A3">
+        <g type="Background" id="A6">
+          <path class="background_fill_8" d="M341.379,115.632c0,2.475-2.025,4.5-4.5,4.5H222.4c-2.475,0-4.5-2.025-4.5-4.5V24.13c0-2.475,2.025-4.5,4.5-4.5h114.479c2.475,0,4.5,2.025,4.5,4.5V115.632z"/>
+        </g>
+        <g type="Text" id="A15">
+          <text x="253.6738" font-size="16.5" y="109.2402" class="text_fill_22 text_font-family_2 text_font-weight_2">Pearson</text>
+        </g>
+        <g type="Icon" id="A7">
+          <path class="icon_fill_22" d="M225.453,113.649v-21.75h21.75v21.75H225.453L225.453,113.649z"/>
+          <path class="icon_fill_8" d="M237.081,103.102l8.021,2.332l0.003-0.598l-7.965-5.293l-0.162-4.11c0-0.988-0.21-1.788-0.812-1.789c-0.6,0-0.809,0.801-0.809,1.788l-0.164,4.112l-7.963,5.292v0.597l8.024-2.331v1.285l0.316,5.449l-1.901,1.634v0.434l2.497-1.005l2.498,1.006v-0.436l-1.901-1.634l0.316-5.448v-1.286H237.081z"/>
+        </g>
+        <g type="Text" id="A16">
+          <text x="231.2744" font-size="16.5" y="72.5801" class="text_fill_22 text_font-family_2 text_font-weight_2">Kipling Ave.</text>
+        </g>
+        <g type="Text" id="A17">
+          <text x="233.5679" font-size="16.5" y="53.7549" class="text_fill_22 text_font-family_2 text_font-weight_2">Belfield Rd.</text>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg> -->

@@ -1,27 +1,13 @@
-cmake_minimum_required(VERSION 3.8)
-project(SVGRasterizer)
-
-set(CMAKE_CXX_STANDARD 17) # long live cmake 3.8
-##################### third party #####################
-
-set(LIBS_PATH "${CMAKE_CURRENT_SOURCE_DIR}/libs")
-set(INCLUDE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/include")
-set(LIBRARY_NAME "SVGRasterizer")
+set(THIRD_PARTY_PATH "${CMAKE_SOURCE_DIR}/thirdparty")
 
 #pugixml
-add_subdirectory("${LIBS_PATH}/pugixml" "libs/pugixml")
-include_directories(libs/pugixml/src)
+add_subdirectory("${THIRD_PARTY_PATH}/pugixml" "thirdparty/pugixml")
 
 #GSL
-add_subdirectory("${LIBS_PATH}/GSL" "libs/GSL")
-
+add_subdirectory("${THIRD_PARTY_PATH}/GSL" "thirdparty/GSL")
 #spdlog
-add_subdirectory("${LIBS_PATH}/spdlog" "libs/spdlog")
+add_subdirectory("${THIRD_PARTY_PATH}/spdlog" "thirdparty/spdlog")
 
-#rapidjson
-add_library(RapidJSON INTERFACE)
-target_include_directories(RapidJSON INTERFACE libs/rapidjson)
-include_directories(libs/rapidjson/include)
 ########################################################
 
 set(SVG_RASTERIZER_SRC_PATH "${CMAKE_SOURCE_DIR}/src")
@@ -44,24 +30,14 @@ set(SVG_RASTERIZER_SRC
         "${SVG_RASTERIZER_SRC_PATH}/Svg_element_processor.cpp"
         "${SVG_RASTERIZER_SRC_PATH}/Svg_element.cpp")
 
-add_library(${LIBRARY_NAME} ${SVG_RASTERIZER_INCLUDE}
-        ${SVG_RASTERIZER_SRC})
+include_directories(${THIRD_PARTY_PATH}
+        ${SVG_RASTERIZER_SRC_PATH}
+        ${CMAKE_SOURCE_DIR}
+        ${SVG_RASTERIZER_INCLUDE_PATH})
+add_subdirectory("${THIRD_PARTY_PATH}/rapidjson" "thirdparty/rapidjson")
 
-target_link_libraries(${LIBRARY_NAME} GSL
-        RapidJSON
+add_library(SVGRasterizer ${SVG_RASTERIZER_INCLUDE}
+        ${SVG_RASTERIZER_SRC})
+target_link_libraries(SVGRasterizer GSL
         pugixml
         spdlog)
-
-target_include_directories(${LIBRARY_NAME} PRIVATE
-        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include/${LIBRARY_NAME}>
-        $<INSTALL_INTERFACE:include/${LIBRARY_NAME}>
-        )
-
-target_include_directories(${LIBRARY_NAME} PUBLIC
-        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-        $<INSTALL_INTERFACE:include>
-        )
-#unit tests and test target
-add_subdirectory(test)
-
-

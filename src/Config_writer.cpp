@@ -1,7 +1,7 @@
 //
 // Created by Razvan Pascalau on 04/12/2016.
 //
-#include <rapidjson/include/rapidjson/prettywriter.h>
+#include <rapidjson/prettywriter.h>
 #include "Config_writer.hpp"
 #include "rapidjson/filewritestream.h"
 #include "rapidjson/document.h"

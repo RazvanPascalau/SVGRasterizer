@@ -1,13 +1,13 @@
-[submodule "thirdparty/GSL"]
-	path = thirdparty/GSL
+[submodule "libs/GSL"]
+	path = libs/GSL
 	url = https://github.com/Microsoft/GSL
-[submodule "thirdparty/rapidjson"]
-	path = thirdparty/rapidjson
+[submodule "libs/rapidjson"]
+	path = libs/rapidjson
 	url = https://github.com/miloyip/rapidjson.git
-[submodule "thirdparty/spdlog"]
-	path = thirdparty/spdlog
-	url = https://github.com/gabime/spdlog.git
-[submodule "thirdparty/pugixml"]
-	path = thirdparty/pugixml
+[submodule "libs/pugixml"]
+	path = libs/pugixml
 	url = https://github.com/zeux/pugixml
 	branch = master
+[submodule "libs/spdlog"]
+	path = libs/spdlog
+	url = https://github.com/gabime/spdlog.git

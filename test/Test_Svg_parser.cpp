@@ -4,7 +4,7 @@
 
 #define CATCH_CONFIG_MAIN
 
-#include "../include/SVGRasterizer/Svg_parser.hpp"
+#include "SVGRasterizer/Svg_parser.hpp"
 #include "catch.hpp"
 #include "spdlog/spdlog.h"
 

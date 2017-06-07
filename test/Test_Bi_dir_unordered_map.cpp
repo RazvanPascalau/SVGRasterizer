@@ -3,7 +3,7 @@
 //
 
 #include "catch.hpp"
-#include "../include/SVGRasterizer/Bi_dir_unordered_map.hpp"
+#include "SVGRasterizer/Bi_dir_unordered_map.hpp"
 
 TEST_CASE("Bi_directional_unordered_map", "[Bi_dir_unordered_map]")
 {

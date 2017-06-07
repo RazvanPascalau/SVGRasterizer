@@ -2,10 +2,6 @@
 [submodule "libs/GSL"]
 	path = libs/GSL
 	url = https://github.com/Microsoft/GSL
-[submodule "libs/Catch"]
-	path = libs/Catch
-	url = https://github.com/philsquared/Catch.git
-	branch = master
 [submodule "libs/pugixml"]
 	path = libs/pugixml
 	url = https://github.com/zeux/pugixml
@@ -17,3 +13,6 @@
 [submodule "libs/rapidjson"]
 	path = libs/rapidjson
 	url = https://github.com/miloyip/rapidjson.git
+[submodule "libs/catch"]
+	path = libs/catch
+	url = https://github.com/philsquared/Catch.git

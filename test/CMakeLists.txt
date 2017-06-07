@@ -1,14 +1,9 @@
-#set(THIRD_PARTY_PATH "${CMAKE_SOURCE_DIR}/thirdparty")
-#set(SVG_RASTERIZER_SRC_PATH "${CMAKE_SOURCE_DIR}/src")
-
 #Catch
 add_library(Catch INTERFACE)
+SET(CATCH_INCLUDE_DIR "${LIBS_PATH}/catch/single_include")
+target_include_directories(Catch INTERFACE ${CATCH_INCLUDE_DIR} ${COMMON_INCLUDES})
 
-#unit tests
-target_include_directories(Catch INTERFACE ${LIBS_PATH}/Catch)
-include_directories(${SVG_RASTERIZER_SRC_PATH})
-enable_testing()
-
+enable_testing(true)
 SET(SVG_RASTERIZER_TEST_PATH "${CMAKE_CURRENT_SOURCE_DIR}")
 SET(TEST_SVGRASTERIZER_SRC "${SVG_RASTERIZER_TEST_PATH}/Test_Bi_dir_unordered_map.cpp"
         "${SVG_RASTERIZER_TEST_PATH}/Test_Svg_parser.cpp")

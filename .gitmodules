@@ -1,1 +1,19 @@
 
+[submodule "libs/GSL"]
+	path = libs/GSL
+	url = https://github.com/Microsoft/GSL
+[submodule "libs/Catch"]
+	path = libs/Catch
+	url = https://github.com/philsquared/Catch.git
+	branch = master
+[submodule "libs/pugixml"]
+	path = libs/pugixml
+	url = https://github.com/zeux/pugixml
+	branch = master
+[submodule "libs/spdlog"]
+	path = libs/spdlog
+	url = https://github.com/gabime/spdlog.git
+	branch = master
+[submodule "libs/rapidjson"]
+	path = libs/rapidjson
+	url = https://github.com/miloyip/rapidjson.git
